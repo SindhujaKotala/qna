@@ -11,33 +11,33 @@
         <form action="">
             <p>Name</p>
             <input type="text" name="name" placeholder="enter your name...">
-            <!-- <input type="button" id="clck" name="" value="Submit"> 
-            -->
-            <input type="button" id="clck" name="" value="Submit" onclick="redirect(this.form)">
+            <input type="button" id="clck" name="" value="Submit"> 
+            
+            <!--<input type="button" id="clck" name="" value="Submit" onclick="redirect(this.form)">-->
         </form>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="JS/login.js"></script> 
+    <!--<script src="JS/login.js"></script> -->
     <script>
         const but = document.getElementById('clck');
-        // const socket = io();
-        // var dat;
-        // window.addEventListener("message", (event)=>{
-        //     var dat = event.data;
-        //     console.log(dat);
-        //     window.localStorage.setItem('username', dat);
-        // });
-        // but.addEventListener('click', function(){
-        //     //var data = localStorage.getItem('username');
-        //     var n = data;
-        //     socket.emit('names',n);
-        //     if (n==('admin')){
+        const socket = io();
+        var dat;
+        window.addEventListener("message", (event)=>{
+            var dat = JSON.stringify(event.data);
+            console.log(dat);
+            window.localStorage.setItem('username', dat);
+        });
+        but.addEventListener('click', function(){
+            //var data = localStorage.getItem('username');
+            var n = data;
+            socket.emit('names',n);
+            if (n==('admin')){
                 
-        //         window.location="admin.html";
-        //     }
-        //     else{
-        //         window.location="pindex.html";
-        //     }
-        // });
+                window.location="admin.html";
+            }
+            else{
+                window.location="pindex.html";
+            }
+        });
         but.click();
     </script>
     </div>
