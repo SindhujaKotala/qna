@@ -16,18 +16,18 @@
             <input type="button" id="clck" name="" value="Submit">
         </form>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="JS/login.js"></script>
+    <!--<script src="JS/login.js"></script> -->
     <script>
         const but = document.getElementById('clck');
         const socket = io();
         var dat;
-        window.addEventListener('message', (event)=>{
+        window.addEventListener("message", (event)=>{
             var dat = event.data;
             console.log(dat);
             window.localStorage.setItem('username', dat);
         });
         but.addEventListener('click', function(){
-            var data = localStorage.getItem('username');
+            //var data = localStorage.getItem('username');
             var n = data;
             socket.emit('names',n);
             if (n==('admin')){
