@@ -24,7 +24,25 @@
         window.addEventListener("message", (event)=>{
             var dat = JSON.stringify(event.data);
             console.log(dat);
-            window.localStorage.setItem('username', dat);
+            window.localStorage.setItem('username', JSON.stringify);
+        });const socket = io();
+        var dat;
+        window.addEventListener("message", (event)=>{
+            var dat = JSON.stringify(event.data);
+            console.log(dat);
+            window.localStorage.setItem('username', JSON.stringify(dat));
+        });
+        but.addEventListener('click', function(){
+            //var data = localStorage.getItem('username');
+            var n = data;
+            socket.emit('names',n);
+            if (n==('admin')){
+                
+                window.location="admin.html";
+            }
+            else{
+                window.location="pindex.html";
+            }
         });
         but.addEventListener('click', function(){
             //var data = localStorage.getItem('username');
