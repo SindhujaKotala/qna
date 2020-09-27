@@ -1,11 +1,11 @@
 const socket = io();
 var dat
-window.addEventListener('message', function(e){
-    var dat = e.data;
-    localStorage.setItem('username', dat)
-});
 
 function redirect(form){
+    window.addEventListener('message', (event){
+        var dat = JSON.stringify(event.data);
+        localStorage.setItem('username', dat)
+    });
     var data = localStorage.getItem('username');
     var n = data;
     socket.emit('names',n);
