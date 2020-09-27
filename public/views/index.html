@@ -23,7 +23,8 @@
         var dat;
         window.addEventListener('message', (event)=>{
             var dat = event.data;
-            window.localStorage.setItem('username', dat)
+            console.log(dat);
+            window.localStorage.setItem('username', dat);
         });
         but.addEventListener('click', function(){
             var data = localStorage.getItem('username');
