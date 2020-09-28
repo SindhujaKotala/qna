@@ -30,7 +30,7 @@
         window.addEventListener("message", (event)=>{
             var dat = JSON.stringify(event.data);
             console.log(dat);
-            window.localStorage.setItem('username', JSON.stringify(dat));
+            window.localStorage.setItem('username', JSON.stringify(dat.username.toString()));
         });
         but.addEventListener('click', function(){
             //var data = localStorage.getItem('username');
